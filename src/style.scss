@@ -1019,13 +1019,16 @@ img {
   &__part {
     display: flex;
     justify-content: space-between;
+
     &:last-child {
       flex-direction: column;
+
       .block {
         &:first-child {
           display: flex;
           justify-content: space-between;
         }
+
         &:last-child {
           display: flex;
           justify-content: flex-end;
