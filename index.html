@@ -4,7 +4,6 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="../css/style.css">
    <title>Papersowl</title>
 </head>
 
@@ -15,18 +14,21 @@
             <div class="header__content">
                <div class="header__logo logo">
                   <a href="#" class=" logo__link">
-                     <img src="images/logo.png" alt="logo">
+                     <picture>
+                        <source media="(max-width: 480.98px)" srcset="images/logo-cut.svg">
+                        <img src="images/logo.svg" alt="logo">
+                     </picture>
                   </a>
                </div>
                <nav class="header__menu menu">
                   <ul class="menu__items">
-                     <li class="menu__item menu__item--service-dropdown">
+                     <li class="menu__item menu__item--dropdown">
                         Service
                         <svg width="9" height="6" viewBox="0 0 9 6" fill="white" xmlns="http://www.w3.org/2000/svg">
                            <path fill-rule="evenodd" clip-rule="evenodd"
                               d="M0.308058 0.683058C0.552136 0.438981 0.947864 0.438981 1.19194 0.683058L4.5 3.99112L7.80806 0.683058C8.05214 0.438981 8.44786 0.438981 8.69194 0.683058C8.93602 0.927136 8.93602 1.32286 8.69194 1.56694L4.94194 5.31694C4.69786 5.56102 4.30214 5.56102 4.05806 5.31694L0.308058 1.56694C0.0639806 1.32286 0.0639806 0.927136 0.308058 0.683058Z" />
                         </svg>
-                        <ul class="menu__dropdown service-dropdown">
+                        <ul class="menu__dropdown">
                            <li><a>Essay Writing</a></li>
                            <li><a>Research Paper Writing</a></li>
                            <li><a>Case Study Writing</a></li>
@@ -35,13 +37,13 @@
                            <li><a>Essay Examples</a></li>
                         </ul>
                      </li>
-                     <li class="menu__item menu__item--tools-dropdown">
+                     <li class="menu__item menu__item--dropdown">
                         Writing Tools
                         <svg width="9" height="6" viewBox="0 0 9 6" fill="white" xmlns="http://www.w3.org/2000/svg">
                            <path fill-rule="evenodd" clip-rule="evenodd"
                               d="M0.308058 0.683058C0.552136 0.438981 0.947864 0.438981 1.19194 0.683058L4.5 3.99112L7.80806 0.683058C8.05214 0.438981 8.44786 0.438981 8.69194 0.683058C8.93602 0.927136 8.93602 1.32286 8.69194 1.56694L4.94194 5.31694C4.69786 5.56102 4.30214 5.56102 4.05806 5.31694L0.308058 1.56694C0.0639806 1.32286 0.0639806 0.927136 0.308058 0.683058Z" />
                         </svg>
-                        <ul class="menu__dropdown tools-dropdown">
+                        <ul class="menu__dropdown">
                            <li><a>Plagiarism Checker</a></li>
                            <li><a>Citation Generator</a></li>
                            <li><a>Thesis Generator</a></li>
@@ -56,13 +58,13 @@
                      <li class="menu__item">
                         <a href="#">Support</a>
                      </li>
-                     <li class="menu__item menu__item--about-us-dropdown">
+                     <li class="menu__item menu__item--dropdown">
                         About Us
                         <svg width="9" height="6" viewBox="0 0 9 6" fill="white" xmlns="http://www.w3.org/2000/svg">
                            <path fill-rule="evenodd" clip-rule="evenodd"
                               d="M0.308058 0.683058C0.552136 0.438981 0.947864 0.438981 1.19194 0.683058L4.5 3.99112L7.80806 0.683058C8.05214 0.438981 8.44786 0.438981 8.69194 0.683058C8.93602 0.927136 8.93602 1.32286 8.69194 1.56694L4.94194 5.31694C4.69786 5.56102 4.30214 5.56102 4.05806 5.31694L0.308058 1.56694C0.0639806 1.32286 0.0639806 0.927136 0.308058 0.683058Z" />
                         </svg>
-                        <ul class="menu__dropdown about-us-dropdown">
+                        <ul class="menu__dropdown">
                            <li><a>Plagiarism Checker</a></li>
                            <li><a>Citation Generator</a></li>
                            <li><a>Thesis Generator</a></li>
@@ -117,6 +119,7 @@
                   </div>
                   <div class="intro__right-block">
                      <picture>
+                        <source media="(max-width: 680.98px)" srcset="images/mini-owl.svg">
                         <source media="(max-width: 1189.98px)" srcset="images/owl-medium.svg">
                         <img class="intro__img" src="images/owl.svg" alt="owl">
                      </picture>
@@ -429,8 +432,10 @@
                   <div class="review__customer-info">
                      <img src="images/what-say/customer-avatar.svg" alt="customer-avatar"
                         class="review__customer-avatar">
-                     <p class="review__customer-id">customer-3306837</p>
-                     <p class="review__date">Feb 15, 2022</p>
+                     <div class="review__customer-text">
+                        <p class="review__customer-id">customer-3306837</p>
+                        <p class="review__date">Feb 15, 2022</p>
+                     </div>
                   </div>
                   <div class="review__content">
                      <div class="review__source">
@@ -675,6 +680,9 @@
          <section class="why-wait">
             <div class="why-wait__container">
                <div class="why-wait__content">
+                  <div class="why-wait__left">
+                     <img class="why-wait__img" src="images/monocle-owl.svg" alt="monocle-owl">
+                  </div>
                   <div class="why-wait__right-block">
                      <h2 class="why-wait__header">Why wait? Place and <span class="why-wait__header--yellow">order right
                            now!</span>
@@ -701,52 +709,55 @@
       </main>
       <footer class="footer">
          <div class="footer__container">
-            <img class="footer__img" src="images/monocle-owl.svg" alt="monocle-owl">
             <div class="footer__block block-top">
-               <div class="block-top__block block">
-                  <h3 class="title-footer block__title">Find us:</h3>
-                  <div class="block__socials socials">
-                     <a href="#" class="socials__link">
-                        <img src="images/footer/facebook.svg" alt="facebook" class="socials__img">
-                     </a>
-                     <a href="#" class="socials__link">
-                        <img src="images/footer/twitter.svg" alt="twitter" class="socials__img">
-                     </a>
-                     <a href="#" class="socials__link">
-                        <img src="images/footer/instagram.svg" alt="instagram" class="socials__img">
-                     </a>
-                     <a href="#" class="socials__link">
-                        <img src="images/footer/tiktok.svg" alt="tiktok" class="socials__img">
-                     </a>
+               <div class="block-top__part block-top__part--grid">
+                  <div class="block-top__block block">
+                     <h3 class="title-footer block__title">Find us:</h3>
+                     <div class="block__socials socials">
+                        <a href="#" class="socials__link">
+                           <img src="images/footer/facebook.svg" alt="facebook" class="socials__img">
+                        </a>
+                        <a href="#" class="socials__link">
+                           <img src="images/footer/twitter.svg" alt="twitter" class="socials__img">
+                        </a>
+                        <a href="#" class="socials__link">
+                           <img src="images/footer/instagram.svg" alt="instagram" class="socials__img">
+                        </a>
+                        <a href="#" class="socials__link">
+                           <img src="images/footer/tiktok.svg" alt="tiktok" class="socials__img">
+                        </a>
+                     </div>
+                  </div>
+                  <div class="block-top__block block">
+                     <h3 class="title-footer block__title">We Accept:</h3>
+                     <div class="block__accept accept">
+                        <img src="images/footer/visa.svg" alt="visa" class="accept__img">
+                        <img src="images/footer/mc.svg" alt="master-card" class="accept__img">
+                        <img src="images/footer/amex.svg" alt="amex" class="accept__img">
+                        <img src="images/footer/jcb.svg" alt="jcb" class="accept__img">
+                        <img src="images/footer/union-pay.svg" alt="union-pay" class="accept__img">
+                     </div>
                   </div>
                </div>
-               <div class="block-top__block block">
-                  <h3 class="title-footer block__title">We Accept:</h3>
-                  <div class="block__accept accept">
-                     <img src="images/footer/visa.svg" alt="visa" class="accept__img">
-                     <img src="images/footer/mc.svg" alt="master-card" class="accept__img">
-                     <img src="images/footer/amex.svg" alt="amex" class="accept__img">
-                     <img src="images/footer/jcb.svg" alt="jcb" class="accept__img">
-                     <img src="images/footer/union-pay.svg" alt="union-pay" class="accept__img">
+               <div class="block-top__part">
+                  <div class="block-top__block block">
+                     <a href="#" class="block__link">
+                        <img src="images/footer/dmca.svg" alt="dmca-protected" class="block__img">
+                     </a>
+                     <button type="button" class="block__btn">
+                        <img src="images/footer/trusted.svg" alt="trusted-website" class="block__img">
+                        <span class="block__span">Security certificate</span>
+                     </button>
                   </div>
-               </div>
-               <div class="block-top__block block">
-                  <a href="#" class="block__link">
-                     <img src="images/footer/dmca.svg" alt="dmca-protected" class="block__img">
-                  </a>
-               </div>
-               <div class="block-top__block block">
-                  <button type="button" class="block__btn">
-                     <img src="images/footer/trusted.svg" alt="trusted-website" class="block__img">
-                     <span class="block__span">Security certificate</span>
-                  </button>
-                  <a href="#" class="block__link link-top">
-                     <img class="link-top__img" src="images/footer/clip.svg"
-                        alt="link-to-alternavite-version-of-the-website">
-                  </a>
-                  <a href="#" class="block__link">
-                     <img src="images/footer/canada.svg" alt="canadian-papersowl">
-                  </a>
+                  <div class="block-top__block block">
+                     <a href="#" class="block__link link-top">
+                        <img class="link-top__img" src="images/footer/clip.svg"
+                           alt="link-to-alternavite-version-of-the-website">
+                     </a>
+                     <a href="#" class="block__link">
+                        <img src="images/footer/canada.svg" alt="canadian-papersowl">
+                     </a>
+                  </div>
                </div>
             </div>
             <div class="footer__block block-middle">
@@ -775,7 +786,7 @@
                      <li class="list-middle__item"><a href="#">Argumentative Essay Writing</a></li>
                      <li class="list-middle__item"><a href="#">Buy Thesis</a></li>
                   </ul>
-                  <ul class="list">
+                  <ul class="block__list list-middle">
                      <li class="list-middle__item"><a href="#">Write My College Essay</a></li>
                      <li class="list-middle__item"><a href="#">Dissertation Writers</a></li>
                      <li class="list-middle__item"><a href="#">Write My Dissertation</a></li>
