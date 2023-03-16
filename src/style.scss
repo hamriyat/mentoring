@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700&display=swap');
 @import url(lib/reset.css);
+@import url(lib/swiper-bundle.min.css);
 
 body {
   font-family: 'Catamaran', sans-serif;
@@ -15,6 +16,9 @@ body {
 
 .page {
   flex: 1 1 auto;
+}
+.swiper {
+  padding-bottom: 50px;
 }
 
 [class*="__container"] {
@@ -401,7 +405,7 @@ body {
 .card {
   font-size: 14px;
   line-height: 1.42;
-  width: 33%;
+  //width: 33%;
   color: #222526;
   //   max-width: 323.33px;
   box-shadow: 0px 2px 15px rgba(0, 70, 111, 0.15);
@@ -1168,13 +1172,6 @@ body {
     }
   }
 
-  .card {
-    width: 50%;
-
-    &:last-child {
-      display: none;
-    }
-  }
 
   .test-service {
 
