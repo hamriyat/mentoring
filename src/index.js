@@ -1,5 +1,5 @@
 import './style.scss';
-
+import './script';
 // import Swiper JS
 import Swiper, { Navigation, Pagination } from 'swiper';
 
