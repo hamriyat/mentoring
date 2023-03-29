@@ -25,7 +25,7 @@ body {
 }
 
 .swiper {
-  padding: 0 20px 50px;
+  padding: 0 10px 50px;
 }
 
 [class*="__container"] {
@@ -154,7 +154,7 @@ body {
   &__logo {
    position: relative;
    z-index: 5;
-    margin-right: auto;
+   margin-right: auto;
   }
 
   &__menu {
@@ -198,7 +198,7 @@ body {
     &:focus-within svg,
     &:active svg {
       fill: #FDC420;
-      rotate: 180deg;
+      transform: rotate(180deg);
     }
 
     &--dropdown {
@@ -207,7 +207,7 @@ body {
 
     &:hover {
       .menu__dropdown {
-        z-index: 9999;
+        z-index: 999;
         opacity: 1;
         visibility: visible;
 
@@ -408,12 +408,9 @@ body {
 .choose-writer {
   margin-bottom: 60px;
 
-//   &__cards {
-//     display: flex;
-//     justify-content: center;
-//     gap: 30px;
-//     margin-bottom: 30px;
-//   }
+  &__container {
+   position: relative;
+  }
 }
 
 .card {
@@ -888,55 +885,60 @@ body {
 .faq {
   padding: 60px 0;
 
-  &__block {
+  &__accordion {
     max-width: 970px;
     margin: 0 auto;
   }
 }
 
-.expand {
-  background-color: #F2F9FF;
-  border: 1px solid #4DA6FF;
-  border-radius: 7px;
-  margin-bottom: 5px;
+.accordion {
 
-  &__summary {
-   transition: ease-in 1s;
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.25;
-    color: #00466F;
-    padding: 20px;
-    cursor: pointer;
-    list-style: none;
+   &__panel {
+      background-color: #F2F9FF;
+      border: 1px solid #4DA6FF;
+      border-radius: 7px;
+      margin-bottom: 5px;
+      padding: 0 20px 10px;
+   }
 
-    &::after {
+   &__label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.25;
+      padding: 20px 0 10px;
+      color: #00466F;
+      cursor: pointer;
+
+      &::after {
+         content: url(images/faq-arrow.svg);
+         transition: 0.4s;
+         margin-left: 10px;
+      }
+   }
+
+   &__content {
+      max-height: 0;
+      overflow: hidden;
+      margin-top: -5px;
+      transition: 0.8s;
+      color: #222526;
+      line-height: 1.56;
+      padding-right: 30px;
+   }
+
+   &__panel--active-js .accordion__content {
+      max-height: 200px;
+   }
+
+   &__panel--active-js .accordion__label::after {
       content: url(images/faq-arrow.svg);
-      display: inline-block;
-      margin-left: 10px;
-    }
-  }
+      transform: rotate(180deg);
+   }
 
-  &__text {
-    color: #222526;
-    line-height: 1.56;
-    padding: 0 50px 20px 20px;
-  }
 }
 
-.expand[open] {
-
-  summary {
-    margin-bottom: 10px;
-    padding-bottom: 0;
-
-    &:after {
-      rotate: 180deg;
-    }
-  }
-}
 
 // WHY-WAIT SECTION
 
@@ -1243,23 +1245,25 @@ body {
   }
 
   .block-lowres {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+      position: relative;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 20px;
 
-   &__link {
-      padding: 10px 20px;
-      font-size: 16px;
-   }
-
-
+      &__link {
+         padding: 10px 20px;
+         font-size: 16px;
+      }
   }
+
  .burger {
     position: relative;
     z-index: 11;
     width: 33px;
     height: 23px;
     cursor: pointer;
+    margin-right: 15px;
 
     & span,
     &::before,
@@ -1307,44 +1311,120 @@ body {
     }
   }
   .menu {
-   //  display: none;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-      top: 0;
-      right: 100%;
-      width: 100%;
-      height: 100%;
-      padding: 90px 30px 30px 30px;
-      background-color:rgba(7, 14, 19, 0.85);
-      transition: left 0.3s ease 0s;
-      overflow: auto;
-
-   &--active-js {
-      right: 0;
-   }
-
-   &::before {
-      content: "";
       position: fixed;
       top: 0;
       left: 0;
+      visibility: hidden;
+      opacity: 0;
       width: 100%;
-      height: 60px;
-      z-index: 2;
-      background-color: #00466F;
-   }   
-    &__items {
-      flex-direction: column;
-      margin-right: 0;
-      gap: 30px;
-    }
+      height: 100%;
+      padding: 90px 30px 30px 30px;
+      background-color: #fff;
+      color: #00466F;
+      transition: all ease 0.3s;
+      overflow: auto;
 
-    &__item {
-      font-size: 28px;
-    }
+      &--active-js {
+         visibility: visible;
+         opacity: 1;
+      }
+
+      &::before {
+         content: "";
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 60px;
+         z-index: 2;
+         background-color: #00466F;
+      }  
+
+      &__items {
+         width: 100%;
+         flex-direction: column;
+         margin-right: 0;
+         gap: 30px;
+      }
+
+      &__item {
+         display: flex;
+         padding: 5px;
+         justify-content: space-between;
+         align-items: center;
+         font-size: 28px;
+
+         &--dropdown {
+            position: static;
+         }
+
+         &:hover,
+         &:focus-within,
+         &:active {
+            color: #00466F;
+            background-color: lightgrey;
+         }
+
+         & svg {
+            margin-left: 0;
+            height: 18px;
+            width: 18px;
+            transform: rotate(-90deg);
+            fill: #00466F;
+         }
+
+         &:hover svg,
+         &:focus-within svg,
+         &:active svg {
+            transform: rotate(-90deg);
+            fill: #00466F;
+         }
+      }
+   }
+
+   .menu__dropdown {
+      position: fixed;
+      z-index: 4;
+      top: 0;
+      left: 0;
+      right: 100%;
+      margin-left: 0;
+      min-width: auto;
+      border-radius: 0;
+      width: 100%;
+      height: 100%;
+      padding: 90px 30px 30px 30px;
+      background-color: #fff;
+      color: #00466F;
+      transition: all 0.8s ease;
+      overflow: auto;
+
+      &--active-js {
+         right: 0;
+      }
+
+      &::before,
+      &::after {
+         display: none;
+      }
+
+      &::after {
+         display: inline;
+         content: "";
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 60px;
+         z-index: 2;
+         background-color: #00466F;
+      }
+
+      li {
+         font-size: 28px;
+      }
    }
 
   .intro {
@@ -1439,7 +1519,7 @@ body {
   }
 
   .block-lowres {
-
+   
     &__link {
       font-size: 14px;
     }
