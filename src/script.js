@@ -1,3 +1,4 @@
+'use strict';
 
 document.addEventListener('DOMContentLoaded', function (event) {
 
@@ -39,25 +40,70 @@ document.addEventListener('DOMContentLoaded', function (event) {
    }
 
    // nested menu
-   const nestedMenuLinks = document.querySelector('.menu__item--dropdown');
-   const dropdownMenu = document.querySelector('.menu__dropdown');
+   const nestedMenuLinks = document.querySelectorAll('.menu__item--dropdown');
+   const dropdownMenu = document.querySelectorAll('.menu__dropdown');
 
-   if (nestedMenuLinks && dropdownMenu) {
-      nestedMenuLinks.addEventListener("click", function (e) {
-         dropdownMenu.classList.toggle('menu__dropdown--active-js');
-      });
+   addBack();
+
+   window.addEventListener(`resize`, event => {
+      addBack();
+   }, false);
+
+
+   function addBack() {
+      if(window.innerWidth <= 960) {
+
+         nestedMenuLinks.forEach(el => {
+            let back = el.querySelector('.menu__dropdown-back-js');
+            if (!back) {
+               let backBtn = document.createElement('li');
+               backBtn.textContent = '< back';
+               backBtn.classList.add('menu__dropdown-back-js');
+               el.querySelector('.menu__dropdown').prepend(backBtn);
+            }
+         })
+
+      } else {
+         nestedMenuLinks.forEach(el => {
+            let back = el.querySelector('.menu__dropdown-back-js');
+            if (back) {
+               back.remove();
+            }
+         })
+      }
+   }
+
+   let backMenuBtn = document.querySelectorAll('.menu__dropdown-back-js');
+
+   if (backMenuBtn) {
+
+      backMenuBtn.forEach(el => {
+         el.addEventListener("click", function (e) {
+            dropdownMenu.forEach(el => {
+               el.classList.remove('menu__dropdown--active-js');
+            })
+         });
+      })
+
    }
 
 
-   const nestedActive = document.querySelector('.menu__dropdown--active-js');
-   if (nestedActive.lenght > 0) {
-         let backBtn = document.createElement('li');
-         backBtn.textContent = '< back';
-         dropdownMenu.prepend(backBtn);
-      }
-   
+
+   if (nestedMenuLinks) {
+
+      nestedMenuLinks.forEach(el => {
+         el.addEventListener("click", function (e) {
+            this.querySelector('.menu__dropdown').classList.toggle('menu__dropdown--active-js');
+         });
+      })
+
+   }
+
+
+
    // accordion 
    const accordion = document.getElementsByClassName('accordion__panel');
+   let i;
    for (i=0; i<accordion.length; i++) {
       accordion[i].addEventListener('click', function () {
          this.classList.toggle('accordion__panel--active-js')

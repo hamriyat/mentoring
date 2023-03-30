@@ -2,6 +2,10 @@
 @import url(lib/reset.css);
 @import url(lib/swiper-bundle.min.css);
 
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 body {
   font-family: 'Catamaran', sans-serif;
   color: #FFFFFF;
@@ -142,7 +146,7 @@ body {
    top: 0;
    left: 0;
    width: 100%;
-   z-index: 10;
+   z-index: 999999;
 
   &__content {
     display: flex;
